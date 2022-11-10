@@ -9,6 +9,8 @@ import registraduria.Seguridad.seguridad.Modelos.Usuario;
 import registraduria.Seguridad.seguridad.Repositorios.RepositorioRol;
 import registraduria.Seguridad.seguridad.Repositorios.RepositorioUsuario;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -91,22 +93,18 @@ public class ControladorUsuario {
         return sb.toString();
     }
 
-    @PostMapping("validar")
-    public Usuario validarUsuario(@RequestBody Usuario infoUsuario) {
-        log.info("Validando el usuario, request body: {}", infoUsuario);
-
-        Usuario usuarioActual = miRepositorioUsuario.findByEmail(infoUsuario.getCorreo());
-        String contrasenaUsuario = convertirSHA256(infoUsuario.getContrasena());
-        String contrasenaBaseDatos = infoUsuario.getContrasena();
-
-        if (contrasenaUsuario.equals(contrasenaBaseDatos)) {
+    @PostMapping("/validar")
+    public Usuario validarUsuario(@RequestBody Usuario infoUsuario, final HttpServletResponse response) throws IOException {
+        Usuario usuarioActual = this.miRepositorioUsuario.findByEmail(infoUsuario.getCorreo());
+        if (usuarioActual != null && usuarioActual.getContrasena().equals(convertirSHA256(infoUsuario.getContrasena()))) {
+            usuarioActual.setContrasena("");
             return usuarioActual;
-        } 
-        
-        else {
+        } else {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             return null;
         }
     }
+
 
     /**
      * Relación (1 a n) entre rol y usuario
