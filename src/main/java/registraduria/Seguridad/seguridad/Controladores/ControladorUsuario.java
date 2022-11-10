@@ -91,7 +91,7 @@ public class ControladorUsuario {
         return sb.toString();
     }
 
-    @PostMapping("validarUsuario")
+    @PostMapping("validar")
     public Usuario validarUsuario(@RequestBody Usuario infoUsuario) {
         log.info("Validando el usuario, request body: {}", infoUsuario);
 
