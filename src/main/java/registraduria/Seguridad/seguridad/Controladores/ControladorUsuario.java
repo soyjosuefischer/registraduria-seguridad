@@ -108,23 +108,26 @@ public class ControladorUsuario {
         }
     }
 
-    @PutMapping("{infoUsuario}/rol/{InfoRol}")
-    public Usuario asignarUsuario(@PathVariable String InfoUsuario, @PathVariable String InfoRol) {
-        Usuario usuario = miRepositorioUsuario
-                .findById(InfoUsuario)
+    /**
+     * Relación (1 a n) entre rol y usuario
+     * @param id
+     * @param id_rol
+     * @return
+     */
+    @PutMapping("{id}/rol/{id_rol}")
+    public Usuario asignarRolAUsuario(@PathVariable String id,@PathVariable String id_rol){
+        Usuario usuarioActual=this.miRepositorioUsuario
+                .findById(id)
                 .orElse(null);
-
-        Rol rol = miRepositorioRol
-                .findById(InfoRol)
+        Rol rolActual=this.miRepositorioRol
+                .findById(id_rol)
                 .orElse(null);
-
-        if (usuario != null && rol != null) {
-            usuario.setRol(rol);
-            return this.miRepositorioUsuario.save(usuario);
-        } 
-        
-        else {
+        if (usuarioActual!=null && rolActual!=null){
+            usuarioActual.setRol(rolActual);
+            return this.miRepositorioUsuario.save(usuarioActual);
+        }else{
             return null;
         }
+
     }
 }
