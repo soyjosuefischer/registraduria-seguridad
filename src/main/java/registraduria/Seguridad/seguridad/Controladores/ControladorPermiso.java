@@ -13,7 +13,6 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/permiso")
-
 public class ControladorPermiso {
     @Autowired
     private RepositorioPermiso miRepositorioPermiso;
@@ -23,7 +22,7 @@ public class ControladorPermiso {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("infoPermiso")
+    @PostMapping
     public Permiso create(@RequestBody Permiso infoPermiso) {
         return this.miRepositorioPermiso.save(infoPermiso);
     }
