@@ -21,7 +21,6 @@ public class Permiso {
         return _id;
     }
 
-
     public String getUrl() {
         return url;
     }

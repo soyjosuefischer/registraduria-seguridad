@@ -147,19 +147,12 @@ Para correr este proyecto localmente debes seguir los siguientes pasos:
 ### 1. Clonar este repositorio
     $ git clone https://github.com/iamjosuefischer/registraduria-seguridad.git
 
-### 2. Crear y activar el entorno virtual
-    $ 
-    $ 
-
-### 3. Instalar los paquetes del proyecto
-    $ 
-   
-### 4. Correr el servidor
-    $ 
+### 2. Instalar paquetes y ejecutar el proyecto
+Abrir el proyecto en el IDE de IntelliJ IDEA para la instalación automatica de los paquetes del proyecto y posteriormente correrlo localmente.
 
 ## Repositorios de este proyecto
 
-En los siguientes repositorios de GitHub se puede encuentrar el back-end, el componente de seguridad y el front-end de este proyecto.
+En los siguientes repositorios de GitHub se puede encuentrar el back-end, el componente de seguridad, el Api Gateway y el front-end de este proyecto.
 
 ### Back-end
 
@@ -169,8 +162,12 @@ En los siguientes repositorios de GitHub se puede encuentrar el back-end, el com
 
  - <a href="https://github.com/iamjosuefischer/registraduria-seguridad">Componente de seguridad del proyecto de la registraduría</a>
 
+### Api Gateway
+
+ - <a href="https://github.com/iamjosuefischer/registraduria-apigateway">Api Gateway del proyecto de la registraduría</a>
+
 ### Front-end
 
- - <a href="#">Front-end del proyecto de la registraduría</a>
+ - <a href="https://github.com/iamjosuefischer/registraduria-frontend">Front-end del proyecto de la registraduría</a>
 
 </div>
