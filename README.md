@@ -11,7 +11,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?logo=mongodb)
 
 # COMPONENTE DE SEGURIDAD DEL PROYECTO
-### VOTACIONES 2022
+### ELECCIONES 2022
 
 <br>
 
